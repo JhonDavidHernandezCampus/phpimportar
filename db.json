@@ -1,0 +1,16 @@
+{
+    "usuario":[
+        {
+            "usuario":"marcos",
+            "nombre":"Jhon",
+            "contrasena":"jhon",
+            "edad":"19"
+        },
+        {
+            "usuario":"maria",
+            "nombre":"camila",
+            "contrasena":"camila",
+            "edad":"29"
+        }
+    ]
+}

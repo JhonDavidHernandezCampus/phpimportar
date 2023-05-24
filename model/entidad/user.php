@@ -1,28 +1,20 @@
 <?php
     class user{
-        function __construct(){
-
+        static $config = array(
+            'http'=>['header' => "Content-Type: application/json"]
+        );
+        public $usuario;
+        protected $contrasena;
+        public function __construct($usuario, $contrasena){
+            $this-> usuario = $usuario;
+            $this-> contrasena = $contrasena;
         }
 
-        public function saludar(){
-        return __CLASS__."estamos saludando desde user";
-        }
-
-        static public function getUser():string{
-            return "user";
+        public function getUser(){
+            self::$config["http"]["method"]= "GET";
+            $res = file_get_contents('http://localhost:3000/usuario?usuario='.$this -> usuario.'&contrasena='
+            .$this -> contrasena, false, stream_context_create(self::$config));
+            return $res;
         }
     }
-
-
-
-
-/*     function getuser():string{
-        return "esto es de user";
-    } */
-
-/* 
-    require "info.php";
-    echo "user";
- */
-
 ?>
